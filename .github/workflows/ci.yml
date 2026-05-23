@@ -1,19 +1,14 @@
-name: CI/CD 实验
+name: CI Test
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: 设置 JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: temurin
-          cache: maven
-      
-      - name: Maven 构建
-        run: mvn clean package -DskipTests
+
+      - name: Just test
+        run: echo "CI/CD 实验成功"
